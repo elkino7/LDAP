@@ -49,11 +49,12 @@ namespace BlazorLDAP.Controllers
                                     if (ldapField == "employeetype")
                                     {
                                         role = myCollection.ToString().ToLower();
+                                        Console.WriteLine("TIPO : " + role.ToString());
                                     }
                                     if (ldapField == "displayname")
                                     {
                                         name = myCollection.ToString().ToUpper();
-                                        Console.WriteLine("ROL " + role.ToString());
+                                        Console.WriteLine("NAME " + name.ToString());
                                     }
                                     if (ldapField == "title")
                                     {
