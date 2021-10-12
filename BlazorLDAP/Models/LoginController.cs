@@ -70,7 +70,6 @@ namespace BlazorLDAP.Controllers
                                     {
                                         CN = myCollection.ToString().ToUpper();
                                         Console.WriteLine("CN " + CN.ToString());
-                                        //Console.WriteLine("ROL "+ role.ToString());
                                     }
                                     if (ldapField == "title")
                                     {
@@ -78,9 +77,7 @@ namespace BlazorLDAP.Controllers
                                         Console.WriteLine("CARGO" + title.ToString());
                                     }
                                 }
-
                             }
-
                             //pruebas para encontrar grupo
                             DirectorySearcher search = new DirectorySearcher(path);
                             search.Filter = "(cn=" + CN + ")";
@@ -88,7 +85,6 @@ namespace BlazorLDAP.Controllers
                             int propertyCount = result.Properties["memberOf"].Count;
                             string dn;
                             int equalIndex, CommaIndex;
-
                             for (int propertCounter = 0; propertCounter < propertyCount; propertCounter++)
                             {
                                 dn = (string)result.Properties["memberOf"][propertCounter];
@@ -101,8 +97,6 @@ namespace BlazorLDAP.Controllers
                             //Pruebas para encontrar grupo
                             //Añadimos los claims Usuario y Rol para tenerlos disponibles en la Cookie
                             Console.WriteLine("Tamano Grupos : " + grupos.Count);
-
-
                             //Añadimos los claims Usuario y Rol para tenerlos disponibles en la Cookie
                             //Podríamos obtenerlos de una base de datos.
                             var claims = new[]
@@ -134,7 +128,7 @@ namespace BlazorLDAP.Controllers
             }
             catch (Exception ex)
             {
-                return LocalRedirect("/login/Invalid credentials");
+                return LocalRedirect("/login/Credenciales Invalidas Verifique Datos Ingresados : " + ex.Message);
             }
         }
 

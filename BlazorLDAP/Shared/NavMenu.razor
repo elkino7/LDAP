@@ -5,23 +5,30 @@
     </button>
 </div>
 
-<div class="@NavMenuCssClass" @onclick="ToggleNavMenu">
+<div class="@NavMenuCssClass" @onclick="ToggleNavMenu">    
     <ul class="nav flex-column">
         <li class="nav-item px-3">
             <NavLink class="nav-link" href="" Match="NavLinkMatch.All">
                 <span class="oi oi-home" aria-hidden="true"></span> Home
             </NavLink>
         </li>
-        <li class="nav-item px-3">
-            <NavLink class="nav-link" href="counter">
-                <span class="oi oi-plus" aria-hidden="true"></span> INGRESAR EQUIPO
+        <li class="nav-item" px-3>
+            <NavLink class="nav-link" href="Login">
+                <span></span>LOGIN
             </NavLink>
         </li>
-        <li class="nav-item px-3">
-            <NavLink class="nav-link" href="fetchdata">
-                <span class="oi oi-list-rich" aria-hidden="true"></span>CONSULTAR EQUIPOS
-            </NavLink>
-        </li>
+        <AuthorizeView>
+            <li class="nav-item px-3">
+                <NavLink class="nav-link" href="counter">
+                    <span class="oi oi-plus" aria-hidden="true"></span> INGRESAR EQUIPO
+                </NavLink>
+            </li>
+            <li class="nav-item px-3">
+                <NavLink class="nav-link" href="fetchdata">
+                    <span class="oi oi-list-rich" aria-hidden="true"></span>CONSULTAR EQUIPOS
+                </NavLink>
+            </li>
+        </AuthorizeView>
     </ul>
 </div>
 
@@ -34,4 +41,4 @@
     {
         collapseNavMenu = !collapseNavMenu;
     }
-}
+    }
